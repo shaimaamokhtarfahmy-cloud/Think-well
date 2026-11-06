@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ساحة الأبطال</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- خلفية الساحة -->
+        <div id="arena-bg"></div>
+        
+        <!-- واجهة التحكم العلوية -->
+        <div id="hud">
+            <div class="control-box">
+                <label for="lesson-index">اختر المعركة:</label>
+                <select id="lesson-index" onchange="jumpToLesson()"></select>
+            </div>
+            
+            <!-- شريط طاقة الوحش -->
+            <div class="hp-container">
+                <span>طاقة الوحش 👾</span>
+                <div id="hp-bar-bg">
+                    <div id="hp-bar-fill"></div>
+                </div>
+            </div>
+
+            <button id="ask-btn" onclick="drawQuestion()">هجوم سحري ⚡</button>
+        </div>
+
+        <!-- ساحة المعركة -->
+        <div id="battle-arena">
+            <div id="hero">🧙‍♂️</div>
+            <div id="monster-container">
+                <div id="monster-emoji">🐉</div>
+            </div>
+        </div>
+
+        <!-- رسائل اللعبة -->
+        <div id="feedback-message" class="hidden"></div>
+    </div>
+
+    <!-- المربع الحواري (اللفافة السحرية / الأسئلة) -->
+    <div id="quiz-modal" class="hidden">
+        <div class="modal-content">
+            
+            <!-- قسم الشرح (اللفافة السحرية) -->
+            <div id="lesson-section" class="hidden">
+                <h2 id="lesson-title" style="color: #8e44ad;"></h2>
+                <div class="lesson-box">
+                    <p id="lesson-text"></p>
+                </div>
+                <button id="understand-btn" onclick="showQuestion()" class="action-btn">حفظت التعويذة، لنهجم! ⚔️</button>
+            </div>
+            
+            <!-- قسم السؤال -->
+            <div id="question-section" class="hidden">
+                <p id="chapter-branch-label" class="badge"></p>
+                <h3 id="question-counter"></h3>
+                <h2 id="question-text"></h2>
+                <div id="options"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
